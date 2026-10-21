@@ -1,0 +1,32 @@
+=== skip gguf_f16 (done)
+=== skip gguf_q8_0 (done)
+=== skip gguf_q4_k_m (done)
+=== skip gguf_q4_0 (done)
+=== skip gguf_q8_0_mmq8 (done)
+=== --config gguf_f16 --no-mmap 11:37:50
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 60.6, 'p95': 73.4}, 'server_ms': {'p50': 29.8, 'p95': 35.3}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 73.1, 'p95': 87.2}, 'server_ms': {'p50': 30.4, 'p95': 35.8}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 73.1, 'p95': 87.9}, 'server_ms': {'p50': 30.3, 'p95': 35.7}}
+{
+ "gpu_idle_after_load": 1220,
+ "rss_idle_after_load": 454,
+ "gpu_process_peak": 1264,
+ "cpu_rss_peak": 883,
+ "cpu_uss_end": 876,
+ "jetson_proxy_total(gpu+rss)": 2147,
+ "jetson_proxy_total(gpu+uss)": 2140
+}
+=== --config gguf_q4_0 --no-mmap 11:40:25
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 61.3, 'p95': 74.5}, 'server_ms': {'p50': 30.7, 'p95': 36.1}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 73.8, 'p95': 87.5}, 'server_ms': {'p50': 31.1, 'p95': 36.5}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 73.9, 'p95': 87.8}, 'server_ms': {'p50': 30.9, 'p95': 36.2}}
+{
+ "gpu_idle_after_load": 748,
+ "rss_idle_after_load": 385,
+ "gpu_process_peak": 776,
+ "cpu_rss_peak": 806,
+ "cpu_uss_end": 799,
+ "jetson_proxy_total(gpu+rss)": 1582,
+ "jetson_proxy_total(gpu+uss)": 1575
+}
+=== done 11:43:02

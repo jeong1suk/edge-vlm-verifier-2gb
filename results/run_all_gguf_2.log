@@ -1,0 +1,46 @@
+=== skip gguf_f16 (done)
+=== skip gguf_q8_0 (done)
+=== skip gguf_q4_k_m (done)
+=== --config gguf_q4_0 11:25:44
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 65.4, 'p95': 79.5}, 'server_ms': {'p50': 33.6, 'p95': 38.0}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 78.6, 'p95': 92.9}, 'server_ms': {'p50': 33.7, 'p95': 38.2}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 79.0, 'p95': 98.4}, 'server_ms': {'p50': 34.4, 'p95': 40.3}}
+{
+ "gpu_idle_after_load": 748,
+ "rss_idle_after_load": 385,
+ "gpu_process_peak": 776,
+ "cpu_rss_peak": 806,
+ "cpu_uss_end": 799,
+ "jetson_proxy_total(gpu+rss)": 1582,
+ "jetson_proxy_total(gpu+uss)": 1575
+}
+=== --config gguf_q8_0_mmq8 11:28:32
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 66.1, 'p95': 82.7}, 'server_ms': {'p50': 35.3, 'p95': 41.1}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 76.3, 'p95': 90.8}, 'server_ms': {'p50': 33.0, 'p95': 38.3}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 74.8, 'p95': 88.7}, 'server_ms': {'p50': 32.5, 'p95': 37.4}}
+{
+ "gpu_idle_after_load": 810,
+ "rss_idle_after_load": 407,
+ "gpu_process_peak": 838,
+ "cpu_rss_peak": 812,
+ "cpu_uss_end": 805,
+ "jetson_proxy_total(gpu+rss)": 1650,
+ "jetson_proxy_total(gpu+uss)": 1643
+}
+=== --config gguf_f16 --no-mmap 11:31:14
+Traceback (most recent call last):
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+urllib.error.URLError: <urlopen error [Errno 111] Connection refused>
+=== --config gguf_q4_0 --no-mmap 11:33:15
+Traceback (most recent call last):
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+urllib.error.URLError: <urlopen error [Errno 111] Connection refused>
+=== done 11:35:17

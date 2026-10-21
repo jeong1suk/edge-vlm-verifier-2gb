@@ -1,0 +1,62 @@
+{
+ "config": "gguf_f16",
+ "lm": "SmolVLM-500M-Instruct-f16.gguf",
+ "mmproj": "mmproj-SmolVLM-500M-Instruct-f16.gguf",
+ "no_mmap": true,
+ "cmd": "-m data/gguf/SmolVLM-500M-Instruct-f16.gguf --mmproj data/gguf/mmproj-SmolVLM-500M-Instruct-f16.gguf -ngl 99 -c 2048 -np 1 --host 127.0.0.1 --port 8765 --no-webui --cache-ram 0 --no-cache-prompt --load-mode none",
+ "tasks": {
+  "fall": {
+   "n": 500,
+   "prompt": "Is this person fallen on the ground? Answer Yes or No.",
+   "yes_or_no_missing_in_top20": 0,
+   "latency_ms": {
+    "p50": 60.6,
+    "p95": 73.4
+   },
+   "server_ms": {
+    "p50": 29.8,
+    "p95": 35.3
+   }
+  },
+  "fire": {
+   "n": 854,
+   "prompt": "Is there visible fire or flame in this scene? Answer Yes or No.",
+   "yes_or_no_missing_in_top20": 0,
+   "latency_ms": {
+    "p50": 73.1,
+    "p95": 87.2
+   },
+   "server_ms": {
+    "p50": 30.4,
+    "p95": 35.8
+   }
+  },
+  "smoke": {
+   "n": 854,
+   "prompt": "Is there visible smoke in this scene? Answer Yes or No.",
+   "yes_or_no_missing_in_top20": 0,
+   "latency_ms": {
+    "p50": 73.1,
+    "p95": 87.9
+   },
+   "server_ms": {
+    "p50": 30.3,
+    "p95": 35.7
+   }
+  }
+ },
+ "memory_mib": {
+  "gpu_idle_after_load": 1220,
+  "rss_idle_after_load": 454,
+  "gpu_process_peak": 1264,
+  "cpu_rss_peak": 883,
+  "cpu_uss_end": 876,
+  "jetson_proxy_total(gpu+rss)": 2147,
+  "jetson_proxy_total(gpu+uss)": 2140
+ },
+ "env": {
+  "llama.cpp": "b11770 (39da130fc), ubuntu-cuda-12.8-x64 공식 배포판",
+  "gpu": "RTX 4070 SUPER",
+  "note": "latency_ms는 HTTP·base64 포함 클라이언트 측정, server_ms는 서버 내부 처리. Jetson 실측 아님 (D-07)"
+ }
+}

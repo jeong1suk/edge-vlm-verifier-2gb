@@ -1,0 +1,40 @@
+=== --config gguf_f16 11:15:27
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 64.3, 'p95': 77.7}, 'server_ms': {'p50': 32.7, 'p95': 37.1}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 78.0, 'p95': 92.2}, 'server_ms': {'p50': 33.0, 'p95': 37.4}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 77.7, 'p95': 92.1}, 'server_ms': {'p50': 33.1, 'p95': 37.6}}
+{
+ "gpu_idle_after_load": 1220,
+ "rss_idle_after_load": 454,
+ "gpu_process_peak": 1264,
+ "cpu_rss_peak": 886,
+ "cpu_uss_end": 879,
+ "jetson_proxy_total(gpu+rss)": 2150,
+ "jetson_proxy_total(gpu+uss)": 2143
+}
+=== --config gguf_q8_0 11:18:12
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 66.4, 'p95': 81.1}, 'server_ms': {'p50': 34.9, 'p95': 39.4}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 80.0, 'p95': 94.9}, 'server_ms': {'p50': 35.0, 'p95': 39.5}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 79.8, 'p95': 94.3}, 'server_ms': {'p50': 34.9, 'p95': 39.4}}
+{
+ "gpu_idle_after_load": 898,
+ "rss_idle_after_load": 408,
+ "gpu_process_peak": 926,
+ "cpu_rss_peak": 829,
+ "cpu_uss_end": 822,
+ "jetson_proxy_total(gpu+rss)": 1755,
+ "jetson_proxy_total(gpu+uss)": 1748
+}
+=== --config gguf_q4_k_m 11:21:01
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 65.5, 'p95': 79.3}, 'server_ms': {'p50': 34.4, 'p95': 39.1}}
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 79.5, 'p95': 93.8}, 'server_ms': {'p50': 34.8, 'p95': 39.1}}
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'yes_or_no_missing_in_top20': 0, 'latency_ms': {'p50': 79.5, 'p95': 94.9}, 'server_ms': {'p50': 34.9, 'p95': 39.6}}
+{
+ "gpu_idle_after_load": 788,
+ "rss_idle_after_load": 391,
+ "gpu_process_peak": 818,
+ "cpu_rss_peak": 828,
+ "cpu_uss_end": 822,
+ "jetson_proxy_total(gpu+rss)": 1646,
+ "jetson_proxy_total(gpu+uss)": 1640
+}
+=== --config gguf_q4_0 11:23:50
