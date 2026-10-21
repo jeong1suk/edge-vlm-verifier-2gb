@@ -1,0 +1,13 @@
+# 데이터·모델 가중치는 저장소에 넣지 않음 (라이선스·용량)
+data/
+*.safetensors
+*.bin
+*.pt
+__pycache__/
+.venv/
+
+# 회사 이미지로 한 하네스 재현 확인 결과 (공개하지 않음)
+results/*_check/
+results/*_limit*/
+third_party/
+results/*/server.log
