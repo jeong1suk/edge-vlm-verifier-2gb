@@ -1,0 +1,56 @@
+{
+ "config": "bnb8_all",
+ "model": "HuggingFaceTB/SmolVLM-500M-Instruct",
+ "full_frame": false,
+ "tasks": {
+  "fall": {
+   "n": 500,
+   "prompt": "Is this person fallen on the ground? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 129.1,
+    "p95": 138.0,
+    "mean": 130.1
+   }
+  },
+  "fire": {
+   "n": 854,
+   "prompt": "Is there visible fire or flame in this scene? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 130.0,
+    "p95": 138.7,
+    "mean": 130.8
+   }
+  },
+  "smoke": {
+   "n": 854,
+   "prompt": "Is there visible smoke in this scene? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 129.5,
+    "p95": 138.8,
+    "mean": 130.4
+   }
+  }
+ },
+ "memory_mib": {
+  "weights": 578,
+  "activation_peak": 47,
+  "torch_reserved_peak": 696,
+  "cuda_context_empty": 212,
+  "gpu_process_peak": 934,
+  "runtime_overhead": 238,
+  "cpu_rss_before_model_load": 587,
+  "cpu_rss_after_load": 892,
+  "cpu_rss_after_gc_trim": 870,
+  "cpu_rss_peak": 1609,
+  "cpu_uss_end": 1595,
+  "jetson_proxy_total(gpu+rss)": 2543
+ },
+ "env": {
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "torch": "2.13.0+cu130",
+  "transformers": "5.19.0",
+  "batch": 1,
+  "warmup": 3,
+  "note": "RTX 4070 SUPER 데스크톱 수치. Jetson 실측 아님 (D-07)"
+ }
+}

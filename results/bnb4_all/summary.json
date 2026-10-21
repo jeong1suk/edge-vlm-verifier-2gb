@@ -1,0 +1,57 @@
+{
+ "config": "bnb4_all",
+ "model": "HuggingFaceTB/SmolVLM-500M-Instruct",
+ "full_frame": false,
+ "tasks": {
+  "fall": {
+   "n": 500,
+   "prompt": "Is this person fallen on the ground? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 43.3,
+    "p95": 45.5,
+    "mean": 43.4
+   }
+  },
+  "fire": {
+   "n": 854,
+   "prompt": "Is there visible fire or flame in this scene? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 44.7,
+    "p95": 47.7,
+    "mean": 44.8
+   }
+  },
+  "smoke": {
+   "n": 854,
+   "prompt": "Is there visible smoke in this scene? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 44.7,
+    "p95": 47.3,
+    "mean": 44.8
+   }
+  }
+ },
+ "memory_mib": {
+  "weights": 405,
+  "activation_peak": 41,
+  "torch_reserved_peak": 462,
+  "cuda_context_empty": 212,
+  "gpu_process_peak": 692,
+  "runtime_overhead": 230,
+  "cpu_rss_before_model_load": 587,
+  "cpu_rss_after_load": 906,
+  "cpu_rss_after_gc_trim": 902,
+  "cpu_rss_peak": 1618,
+  "cpu_uss_end": 1604,
+  "jetson_proxy_total(gpu+rss)": 2310
+ },
+ "env": {
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "torch": "2.13.0+cu130",
+  "transformers": "5.19.0",
+  "batch": 1,
+  "warmup": 3,
+  "note": "RTX 4070 SUPER 데스크톱 수치. Jetson 실측 아님 (D-07)"
+ },
+ "note_rename": "처음 bnb4로 실행했으나 skip 패턴 버그로 비전까지 NF4 양자화됨 → bnb4_all로 재분류 (2026-10-21)"
+}

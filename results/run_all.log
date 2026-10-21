@@ -1,0 +1,159 @@
+=== --config fp16 09:28:51
+  fall 200/500
+  fall 400/500
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'latency_ms': {'p50': 28.8, 'p95': 31.5, 'mean': 29.0}}
+  fire 200/854
+  fire 400/854
+  fire 600/854
+  fire 800/854
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'latency_ms': {'p50': 30.1, 'p95': 33.1, 'mean': 30.3}}
+  smoke 200/854
+  smoke 400/854
+  smoke 600/854
+  smoke 800/854
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'latency_ms': {'p50': 30.4, 'p95': 34.4, 'mean': 30.7}}
+{
+ "weights": 968,
+ "activation_peak": 33,
+ "torch_reserved_peak": 1012,
+ "cuda_context_empty": 212,
+ "gpu_process_peak": 1240,
+ "runtime_overhead": 228,
+ "cpu_rss_before_model_load": 587,
+ "cpu_rss_after_load": 862,
+ "cpu_rss_after_gc_trim": 849,
+ "cpu_rss_peak": 1570,
+ "cpu_uss_end": 1556,
+ "jetson_proxy_total(gpu+rss)": 2810
+}
+=== --config fp16 --full-frame 09:30:08
+  fall_full 200/500
+  fall_full 400/500
+fall_full {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'latency_ms': {'p50': 29.3, 'p95': 32.4, 'mean': 29.7}}
+{
+ "weights": 968,
+ "activation_peak": 33,
+ "torch_reserved_peak": 1012,
+ "cuda_context_empty": 212,
+ "gpu_process_peak": 1240,
+ "runtime_overhead": 228,
+ "cpu_rss_before_model_load": 587,
+ "cpu_rss_after_load": 862,
+ "cpu_rss_after_gc_trim": 848,
+ "cpu_rss_peak": 1537,
+ "cpu_uss_end": 1523,
+ "jetson_proxy_total(gpu+rss)": 2777
+}
+=== --config fp16_256m 09:30:31
+  fall 200/500
+  fall 400/500
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'latency_ms': {'p50': 28.1, 'p95': 30.9, 'mean': 28.3}}
+  fire 200/854
+  fire 400/854
+  fire 600/854
+  fire 800/854
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'latency_ms': {'p50': 29.1, 'p95': 32.3, 'mean': 29.3}}
+  smoke 200/854
+  smoke 400/854
+  smoke 600/854
+  smoke 800/854
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'latency_ms': {'p50': 29.1, 'p95': 32.5, 'mean': 29.3}}
+{
+ "weights": 489,
+ "activation_peak": 33,
+ "torch_reserved_peak": 544,
+ "cuda_context_empty": 212,
+ "gpu_process_peak": 774,
+ "runtime_overhead": 230,
+ "cpu_rss_before_model_load": 587,
+ "cpu_rss_after_load": 846,
+ "cpu_rss_after_gc_trim": 839,
+ "cpu_rss_peak": 1560,
+ "cpu_uss_end": 1532,
+ "jetson_proxy_total(gpu+rss)": 2334
+}
+=== --config bnb8 09:31:46
+  fall 200/500
+  fall 400/500
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'latency_ms': {'p50': 129.9, 'p95': 138.2, 'mean': 130.8}}
+  fire 200/854
+  fire 400/854
+  fire 600/854
+  fire 800/854
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'latency_ms': {'p50': 130.4, 'p95': 139.0, 'mean': 131.2}}
+  smoke 200/854
+  smoke 400/854
+  smoke 600/854
+  smoke 800/854
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'latency_ms': {'p50': 131.0, 'p95': 139.6, 'mean': 131.7}}
+{
+ "weights": 578,
+ "activation_peak": 47,
+ "torch_reserved_peak": 696,
+ "cuda_context_empty": 212,
+ "gpu_process_peak": 934,
+ "runtime_overhead": 238,
+ "cpu_rss_before_model_load": 588,
+ "cpu_rss_after_load": 892,
+ "cpu_rss_after_gc_trim": 870,
+ "cpu_rss_peak": 1610,
+ "cpu_uss_end": 1596,
+ "jetson_proxy_total(gpu+rss)": 2544
+}
+=== --config bnb4 09:36:48
+  fall 200/500
+  fall 400/500
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'latency_ms': {'p50': 43.3, 'p95': 45.5, 'mean': 43.4}}
+  fire 200/854
+  fire 400/854
+  fire 600/854
+  fire 800/854
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'latency_ms': {'p50': 44.7, 'p95': 47.7, 'mean': 44.8}}
+  smoke 200/854
+  smoke 400/854
+  smoke 600/854
+  smoke 800/854
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'latency_ms': {'p50': 44.7, 'p95': 47.3, 'mean': 44.8}}
+{
+ "weights": 405,
+ "activation_peak": 41,
+ "torch_reserved_peak": 462,
+ "cuda_context_empty": 212,
+ "gpu_process_peak": 692,
+ "runtime_overhead": 230,
+ "cpu_rss_before_model_load": 587,
+ "cpu_rss_after_load": 906,
+ "cpu_rss_after_gc_trim": 902,
+ "cpu_rss_peak": 1618,
+ "cpu_uss_end": 1604,
+ "jetson_proxy_total(gpu+rss)": 2310
+}
+=== --config bnb8_all 09:38:38
+  fall 200/500
+  fall 400/500
+fall {'n': 500, 'prompt': 'Is this person fallen on the ground? Answer Yes or No.', 'latency_ms': {'p50': 129.1, 'p95': 138.0, 'mean': 130.1}}
+  fire 200/854
+  fire 400/854
+  fire 600/854
+  fire 800/854
+fire {'n': 854, 'prompt': 'Is there visible fire or flame in this scene? Answer Yes or No.', 'latency_ms': {'p50': 130.0, 'p95': 138.7, 'mean': 130.8}}
+  smoke 200/854
+  smoke 400/854
+  smoke 600/854
+  smoke 800/854
+smoke {'n': 854, 'prompt': 'Is there visible smoke in this scene? Answer Yes or No.', 'latency_ms': {'p50': 129.5, 'p95': 138.8, 'mean': 130.4}}
+{
+ "weights": 578,
+ "activation_peak": 47,
+ "torch_reserved_peak": 696,
+ "cuda_context_empty": 212,
+ "gpu_process_peak": 934,
+ "runtime_overhead": 238,
+ "cpu_rss_before_model_load": 587,
+ "cpu_rss_after_load": 892,
+ "cpu_rss_after_gc_trim": 870,
+ "cpu_rss_peak": 1609,
+ "cpu_uss_end": 1595,
+ "jetson_proxy_total(gpu+rss)": 2543
+}
+=== done 09:43:39

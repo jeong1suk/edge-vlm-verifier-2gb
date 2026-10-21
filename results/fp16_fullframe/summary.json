@@ -1,0 +1,38 @@
+{
+ "config": "fp16",
+ "model": "HuggingFaceTB/SmolVLM-500M-Instruct",
+ "full_frame": true,
+ "tasks": {
+  "fall_full": {
+   "n": 500,
+   "prompt": "Is this person fallen on the ground? Answer Yes or No.",
+   "latency_ms": {
+    "p50": 29.3,
+    "p95": 32.4,
+    "mean": 29.7
+   }
+  }
+ },
+ "memory_mib": {
+  "weights": 968,
+  "activation_peak": 33,
+  "torch_reserved_peak": 1012,
+  "cuda_context_empty": 212,
+  "gpu_process_peak": 1240,
+  "runtime_overhead": 228,
+  "cpu_rss_before_model_load": 587,
+  "cpu_rss_after_load": 862,
+  "cpu_rss_after_gc_trim": 848,
+  "cpu_rss_peak": 1537,
+  "cpu_uss_end": 1523,
+  "jetson_proxy_total(gpu+rss)": 2777
+ },
+ "env": {
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "torch": "2.13.0+cu130",
+  "transformers": "5.19.0",
+  "batch": 1,
+  "warmup": 3,
+  "note": "RTX 4070 SUPER 데스크톱 수치. Jetson 실측 아님 (D-07)"
+ }
+}
