@@ -42,7 +42,7 @@
 - [ ] 현장별 threshold 재보정 절차
 
 ## 커밋 계획 (저장소를 만든 뒤, 작업 순서대로 나눠서 남김)
-git 사용자 정보를 설정한 뒤 아래 순서로 커밋하면 기록이 작업 흐름과 같아진다. (현재는 커밋 0개)
+✅ 2026-10-21 완료 (9개). 6번(버그 수정)은 따로 만들지 않았다. 버그가 있던 옛 코드를 다시 만드는 것은 기록을 꾸며내는 일이라, 대신 5번 커밋 메시지에 버그와 수정 내용을 적었다.
 1. `docs: 문제 정의와 판단 기록 시작` — DECISIONS.md(D-01~D-11), PLAN.md, .gitignore
 2. `data: CAUCAFall·D-Fire 다운로드 스크립트` — download_caucafall.py, download_dfire.sh
 3. `data: 낙상 평가셋 구성(falling/collapsed 분리, 음성은 일상 동작만)` — build_fall_set.py, make_crops.py (D-13~D-15)
