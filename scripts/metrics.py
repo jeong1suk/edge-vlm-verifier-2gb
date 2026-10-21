@@ -13,9 +13,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 T = 0.55
 ORDER = ["fp16", "fp16_fullframe", "fp16_256m", "bnb8", "bnb4", "bnb8_all", "bnb4_all",
-         "gguf_f16", "gguf_q8_0", "gguf_q4_k_m", "gguf_q4_0", "gguf_q8_0_mmq8", "gguf_f16_nommap", "gguf_q4_0_nommap"]
+         "gguf_f16", "gguf_q8_0", "gguf_q4_k_m", "gguf_q4_0", "gguf_q8_0_mmq8", "gguf_f16_nommap", "gguf_q4_0_nommap",
+         "lora_fp16", "gguf_lora_f16", "gguf_lora_q8_0", "gguf_lora_q4_0"]
 # 비교 기준: GGUF 조건은 gguf_f16 (전처리가 HF와 달라서, D-20), 나머지는 HF fp16. gguf_f16 자신은 HF fp16과 비교(실행 환경 차이)
-REF = lambda c: "fp16" if (not c.startswith("gguf") or c == "gguf_f16") else "gguf_f16"
+_REF = {"gguf_f16": "fp16", "lora_fp16": "fp16", "gguf_lora_f16": "lora_fp16",
+        "gguf_lora_q8_0": "gguf_lora_f16", "gguf_lora_q4_0": "gguf_lora_f16"}
+REF = lambda c: _REF.get(c, "gguf_f16" if c.startswith("gguf") else "fp16")
 
 
 def auroc(pos, neg):
@@ -102,7 +105,12 @@ def main():
             for b, (lo, hi) in bins.items():
                 xs = [sc[i] for i in sc if fire[i][gtk] == 1 and lo <= fire[i][area] < hi]
                 by[b] = {"n": len(xs), "AUROC_vs_none": auroc(xs, neg)}
-            m[task] = {"AUROC": auroc(pos, neg),
+            src = {}
+            for so in ["AoF", "WEB", "PublicDataset"]:
+                ps = [sc[i] for i in sc if fire[i][gtk] == 1 and fire[i]["source"] == so]
+                ns = [sc[i] for i in sc if fire[i]["cat"] == "none" and fire[i]["source"] == so]
+                src[so] = {"n_pos": len(ps), "n_neg": len(ns), "AUROC": auroc(ps, ns)}
+            m[task] = {"AUROC": auroc(pos, neg), "by_source": src,
                        "AUROC_CI95": boot_ci({i: [s] for i, s in enumerate(pos)}, {i: [s] for i, s in enumerate(neg)}),
                        "at_t": prf(pos, neg), f"{other}_rate_ge_t": sum(x >= T for x in oth) / len(oth),
                        "by_box_area": by}
@@ -174,6 +182,14 @@ def main():
             if task in m:
                 b = m[task]["by_box_area"]
                 L.append(f"| {c} | {task} | " + " | ".join(f"{f(v['AUROC_vs_none'])} (n={v['n']})" for v in b.values()) + " |")
+    L += ["", "## 화재: 출처별 AUROC (양성 vs none, 같은 출처끼리)", "",
+          "AoF = 고정 감시카메라(학습 분할과 같은 카메라가 있을 수 있음), WEB = 웹 수집. PublicDataset은 음성이 4장뿐이라 생략.", "",
+          "| config | 과제 | AoF | WEB |", "|---|---|---|---|"]
+    for c, m in out.items():
+        for task in ["fire", "smoke"]:
+            if task in m:
+                b = m[task]["by_source"]
+                L.append(f"| {c} | {task} | {f(b['AoF']['AUROC'])} (+{b['AoF']['n_pos']}/-{b['AoF']['n_neg']}) | {f(b['WEB']['AUROC'])} (+{b['WEB']['n_pos']}/-{b['WEB']['n_neg']}) |")
     (ROOT / "results" / "summary.md").write_text("\n".join(L) + "\n")
     print("\n".join(L))
 

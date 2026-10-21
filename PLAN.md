@@ -54,3 +54,9 @@
 9. `exp: GGUF 결과와 threshold 재보정` — results/gguf_*, recalibrate.py (D-23)
 10. `docs: README, 그림, 결과 정리` — README.md, make_figure.py, summary.md
 이후 본인이 고치는 부분은 따로 커밋한다 (예: `docs: AI 사용 범위 직접 작성`).
+
+## 고도화 (2026-10-21)
+- [x] 현장 재보정에 필요한 데이터 양 (D-24) → 주간·야간(IR) 효과 발견
+- [x] 불꽃·연기 LoRA → 양자화 (D-25)
+- [ ] (다음) 낙상 데이터를 섞은 LoRA로 낙상 점수 이동 방지
+- [ ] (다음) 처음 보는 카메라(WEB만, 또는 다른 데이터셋)로 LoRA 일반화 확인

@@ -1,0 +1,23 @@
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/489 [00:00<?, ?it/s]Loading weights:  16%|█▌        | 79/489 [00:00<00:00, 777.57it/s]Loading weights:  43%|████▎     | 212/489 [00:00<00:00, 1099.51it/s]Loading weights:  83%|████████▎ | 406/489 [00:00<00:00, 1477.74it/s]Loading weights: 100%|██████████| 489/489 [00:00<00:00, 1480.44it/s]
+trainable 8.68M (text only)
+val AUROC before: {'fire': 0.8853754708097928, 'smoke': 0.8449652777777777}
+{'epoch': 0, 'example': 1500, 'step': 93, 'train_loss': 0.48387748574964157, 'fire': 0.9560940442561205, 'smoke': 0.8722281073446327, 'min': 4.7}
+<venv>/site-packages/peft/utils/save_and_load.py:313: UserWarning: Could not find a config file in HuggingFaceTB/SmolVLM-500M-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+  saved best
+{'epoch': 0, 'example': 3000, 'step': 187, 'train_loss': 0.3044951110683226, 'fire': 0.9671463041431262, 'smoke': 0.9066413606403013, 'min': 9.5}
+  saved best
+{'epoch': 0, 'example': 4500, 'step': 281, 'train_loss': 0.3064896680065431, 'fire': 0.9729137241054614, 'smoke': 0.8981873822975518, 'min': 14.2}
+{'epoch': 0, 'example': 6000, 'step': 375, 'train_loss': 0.29151267056174884, 'fire': 0.9781014595103578, 'smoke': 0.9100076506591337, 'min': 18.9}
+  saved best
+{'epoch': 0, 'example': 7500, 'step': 468, 'train_loss': 0.26467191052103106, 'fire': 0.9751853813559322, 'smoke': 0.8800229519774011, 'min': 23.7}
+{'epoch': 0, 'example': 8858, 'step': 553, 'train_loss': 0.25678724243251294, 'fire': 0.9807409369114878, 'smoke': 0.8989789312617702, 'min': 28.1}
+{'epoch': 1, 'example': 1500, 'step': 646, 'train_loss': 0.22556481651744495, 'fire': 0.9820915725047081, 'smoke': 0.8983874764595103, 'min': 32.8}
+{'epoch': 1, 'example': 3000, 'step': 740, 'train_loss': 0.2510821170822601, 'fire': 0.9809616290018832, 'smoke': 0.9065442561205274, 'min': 37.6}
+{'epoch': 1, 'example': 4500, 'step': 834, 'train_loss': 0.24395554313441972, 'fire': 0.980667372881356, 'smoke': 0.9000029425612053, 'min': 42.3}
+{'epoch': 1, 'example': 6000, 'step': 928, 'train_loss': 0.2166348301615993, 'fire': 0.982618290960452, 'smoke': 0.9062911958568738, 'min': 47.1}
+  saved best
+{'epoch': 1, 'example': 7500, 'step': 1021, 'train_loss': 0.23969200766963575, 'fire': 0.9825888653483993, 'smoke': 0.9046109934086629, 'min': 51.8}
+{'epoch': 1, 'example': 8858, 'step': 1106, 'train_loss': 0.21190944453617946, 'fire': 0.9828595809792844, 'smoke': 0.9030632062146893, 'min': 56.2}
+done. best: {'epoch': 1, 'example': 6000, 'step': 928, 'train_loss': 0.2166348301615993, 'fire': 0.982618290960452, 'smoke': 0.9062911958568738, 'min': 47.1}
