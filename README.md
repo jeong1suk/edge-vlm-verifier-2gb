@@ -25,7 +25,8 @@
 1. **2GB를 막은 것은 가중치가 아니라 런타임이었다.** PyTorch 경로는 4bit로 줄여도 2.3GB 아래로 내려가지 않았다. CPU 메모리가 모델 크기와 상관없이 약 1.5GB로 고정이기 때문이다. 같은 FP16이라도 llama.cpp로 바꾸면 660MB가 줄었다.
 2. **양자화는 판별력(AUROC)을 거의 건드리지 않았다.** 반면 작은 모델(256M)은 쪼그려 앉기의 54%를 쓰러짐으로 판정했다. 메모리를 줄여야 한다면 작은 모델보다 큰 모델을 양자화하는 쪽이 낫다.
 3. **다만 점수 보정은 달라진다.** threshold를 고정(0.55)하면 4bit에서 recall이 6~10%p 움직인다. 재보정이 필요한데, 사람이 바뀌는 효과(같은 모델에서 FPR 0.016 vs 0.120)가 양자화 효과보다 컸다. 그래서 **재보정은 현장 데이터로 해야 한다.**
-4. 권고: **llama.cpp + Q8_0**, `--cache-ram 0`, `CUDA_MODULE_LOADING=LAZY`, 현장별 threshold 재보정
+4. **현장 차이의 정체는 상당 부분 주간·야간(IR)이었다.** 흑백 영상의 오탐률은 0.220, 컬러는 0.030이었다(FP16, t=0.55). 다른 사람의 보정 데이터를 늘려도 낙상은 23~29%의 경우에서 목표 오탐률의 2배를 넘었다. 같은 분포인 화재는 음성 50~100장이면 충분했다. → threshold는 **같은 카메라에서, 주간·야간을 나눠** 정해야 한다(흑백 참가자가 2명뿐이라 가설 수준).
+5. 권고: **llama.cpp + Q8_0**, `--cache-ram 0`, `CUDA_MODULE_LOADING=LAZY`, 현장·주야간별 threshold 재보정
 
 ## 3. 어떻게 확인했나
 
@@ -71,7 +72,7 @@ bash scripts/download_dfire.sh && python scripts/build_fire_set.py
 # 실행
 bash scripts/run_all.sh        # PyTorch: fp16 / fullframe / 256m / bnb8 / bnb4 / bnb8_all  (+ --config bnb4_all)
 bash scripts/run_all_gguf.sh   # llama.cpp: third_party/에 b11770 ubuntu-cuda-12.8 배포판, data/gguf/에 모델
-python scripts/metrics.py && (cd scripts && python recalibrate.py) && python scripts/make_figure.py
+python scripts/metrics.py && (cd scripts && python recalibrate.py && python calib_size.py) && python scripts/make_figure.py
 ```
 버전은 `requirements-lock.txt`에 고정되어 있습니다.
 
