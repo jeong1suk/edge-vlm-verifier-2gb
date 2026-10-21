@@ -36,6 +36,10 @@ CONFIGS = {  # (언어 모델, mmproj) — D-12: 기본은 mmproj(비전) F16
     "gguf_q4_k_m":    ("SmolVLM-500M-Instruct-Q4_K_M.gguf", "mmproj-SmolVLM-500M-Instruct-f16.gguf"),  # 실제 5.89 BPW
     "gguf_q4_0":      ("SmolVLM-500M-Instruct-Q4_0.gguf", "mmproj-SmolVLM-500M-Instruct-f16.gguf"),    # 4.97 BPW
     "gguf_q8_0_mmq8": ("SmolVLM-500M-Instruct-Q8_0.gguf", "mmproj-SmolVLM-500M-Instruct-Q8_0.gguf"),  # 비전까지 Q8
+    # D-25: LoRA를 합친 언어 모델 (scripts/export_lora_gguf.py). 비전은 원본 mmproj F16
+    "gguf_lora_f16":  ("lora-SmolVLM-500M-f16.gguf", "mmproj-SmolVLM-500M-Instruct-f16.gguf"),
+    "gguf_lora_q8_0": ("lora-SmolVLM-500M-Q8_0.gguf", "mmproj-SmolVLM-500M-Instruct-f16.gguf"),
+    "gguf_lora_q4_0": ("lora-SmolVLM-500M-Q4_0.gguf", "mmproj-SmolVLM-500M-Instruct-f16.gguf"),
 }
 PORT = 8765
 

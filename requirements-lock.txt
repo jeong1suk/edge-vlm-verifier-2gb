@@ -2,6 +2,8 @@ accelerate==1.15.0
 annotated-doc==0.0.5
 anyio==4.15.1
 bitsandbytes==0.50.2
+certifi==2026.10.19
+charset-normalizer==3.5.2
 click==8.5.0
 contourpy==1.4.0
 cuda-bindings==13.3.1
@@ -11,6 +13,7 @@ cycler==0.12.1
 filelock==3.32.4
 fonttools==4.66.1
 fsspec==2026.7.0
+gguf==0.19.0  (llama.cpp 39da130fc의 gguf-py에서 설치)
 h11==0.16.0
 hf-xet==1.7.0
 httpcore2==2.13.1
@@ -57,8 +60,10 @@ pyparsing==3.3.3
 python-dateutil==2.9.0.post0
 pyyaml==6.0.3
 regex==2026.9.29
+requests==2.34.2
 rich==15.0.0
 safetensors==0.8.0
+sentencepiece==0.2.2
 setuptools==84.0.0
 shellingham==1.5.4
 six==1.17.0
@@ -76,3 +81,4 @@ triton==3.7.1
 truststore==0.10.5
 typer==0.27.3
 typing-extensions==4.16.0
+urllib3==2.8.0

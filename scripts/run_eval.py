@@ -35,7 +35,9 @@ CONFIGS = {
     "bnb4":      ("HuggingFaceTB/SmolVLM-500M-Instruct", "nf4"),
     "bnb8_all":  ("HuggingFaceTB/SmolVLM-500M-Instruct", "int8_all"),
     "bnb4_all":  ("HuggingFaceTB/SmolVLM-500M-Instruct", "nf4_all"),
+    "lora_fp16": ("HuggingFaceTB/SmolVLM-500M-Instruct", "lora"),  # D-25: 불꽃·연기 LoRA를 합친 FP16
 }
+LORA_ADAPTER = Path(__file__).resolve().parent.parent / "data" / "lora" / "adapter"
 # D-12: 언어 모델만 양자화. transformers 5는 패턴을 전체 이름의 앞부분부터 맞추므로(re.match)
 # "vision_model"이 아니라 "model.vision_model"로 써야 한다 (처음엔 이걸 몰라 비전까지 양자화됨 → check_quant로 방지)
 LM_ONLY_SKIP = ["model.vision_model", "model.connector", "lm_head"]
@@ -83,6 +85,10 @@ def load(config):
                                                        bnb_4bit_compute_dtype=torch.float16,
                                                        llm_int8_skip_modules=LM_ONLY_SKIP if q == "nf4" else ["lm_head"])
     model = AutoModelForImageTextToText.from_pretrained(model_id, device_map="cuda", **kw).eval()
+    if q == "lora":
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, str(LORA_ADAPTER)).merge_and_unload().eval()
+        q = None
     return model_id, proc, model, check_quant(model, q)
 
 
